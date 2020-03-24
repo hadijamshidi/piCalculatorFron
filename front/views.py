@@ -48,9 +48,9 @@ def get_info(request):
             #     "link": "https://aparat.com/" + settings.APARAT,
             # }
         },
-        "other": {
-            "app_install_count": Parameter.get_app_install_count() + settings.APP_INSTALL_COUNT_PLUS
-        }
+        # "other": {
+        #     "app_install_count": Parameter.get_app_install_count() + settings.APP_INSTALL_COUNT_PLUS
+        # }
     })
 
 

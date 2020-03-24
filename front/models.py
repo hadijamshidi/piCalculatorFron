@@ -50,7 +50,7 @@ class Post(models.Model):
 
 class Program(models.Model):
     date = models.DateTimeField(default=datetime.now, null=True, blank=True)
-    register_deadline = models.DateTimeField()
+    register_deadline = models.DateTimeField(default=datetime.now, null=True, blank=True)
     register_deadline_str = models.CharField(default='۱۵ فروردین ۱۳۹۹', max_length=30, null=True, blank=True)
     title = models.CharField(default='عنوان', max_length=30, null=True, blank=True)
     full_description = models.TextField(default='', null=True, blank=True)
