@@ -1,6 +1,7 @@
 let elementIdsWaiting4MathJax = [];
 const userUsageKey = 'userUsage';
 let unAuthorizedWaiting = 0;
+
 function poly2CoeffsPreview() {
     let coeffs = getPoly2Coeffs();
     let previewDiv = document.getElementById("ploy-2-preview");
@@ -75,11 +76,12 @@ function solvePoly(coeffs) {
             Object.keys(solutions).forEach(function (solution_name) {
                 solution_div.innerHTML += solve(solution_name, solutions[solution_name]);
             });
-            elementIdsWaiting4MathJax.forEach(function (elmId) {
-                MathJax.Hub.Queue(["Typeset", MathJax.Hub, elmId]);
-            });
+            MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+            // elementIdsWaiting4MathJax.forEach(function (elmId) {
+            //     MathJax.Hub.Queue(["Typeset", MathJax.Hub, elmId]);
+            // });
             unAuthorizedWaiting = response.unAuthorizedWaiting;
-            MathJax.Hub.Queue(MathJaxRenderFinishCallback);
+            MathJaxRenderFinishCallback();
             limitUser(response.unlimited);
         }
     });
