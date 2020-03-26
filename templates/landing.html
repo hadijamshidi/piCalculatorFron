@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
     {% progressive_web_app_meta %}
-    <title>Arshia - Fully Responsive Personal Template</title>
+    <title>تیچر جمشیدی</title>
     {#    <link rel="manifest" href="/static/js/manifest.json">#}
     <meta content="" name="description"/>
     <meta content="" name="keywords"/>
@@ -128,43 +128,152 @@
             <div class="modal-body">
                 <div class="pt-4 pb-5 text-muted">
                     <div class="container">
-                        <div class="row" style="direction: ltr">
+                        <div class="row" style="direction: rtl">
                             <div class="col-lg-10 mx-auto blog" id="signUpDiv">
                                 <div class="rounded px-lg-5">
                                     <div class="text-md-right">
                                         <h4 class="mb-4">با ثبت‌نام در سایت می‌تونی هر چقدر می‌خوای از ماشین حساب
                                             استفاده کنی</h4>
                                         <div class="image-border">
-                                            <div class="row"><input id="rUn" placeholder="نام کاربری"></div>
-                                            <div class="row"><input id="rP1" placeholder="پسورد"></div>
-                                            <div class="row"><input id="rP2" placeholder="تکرار پسورد"></div>
+
                                             <div class="row">
-                                                <button onclick="signUp()">ثبت نام</button>
-                                                <button onclick="showSignInDiv()">قبلا ثبت‌نام کرده‌ام (ورود)</button>
+                                                <div class="col-lg-12 mt-5 contact-form">
+                                                    <form id="signupForm">
+                                                        <div class="row">
+                                                            <div class="col-lg-12 form-item">
+                                                                <div class="form-group">
+                                                                    <input class="form-control" id="email" name="email"
+                                                                           placeholder="ایمیل*"
+                                                                           required type="email">
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-lg-12 form-item">
+                                                                <div class="form-group">
+                                                                    <input class="form-control" id="password"
+                                                                           name="password" placeholder="انتخاب پسورد* (حداقل ۸ کاراکتر)"
+                                                                           required type="password">
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-lg-12 form-item">
+                                                                <div class="form-group">
+                                                                    <input class="form-control" id="repeatpass"
+                                                                           name="repeatpass" placeholder="تکرار پسورد* (عجله نکن)"
+                                                                           required type="password">
+                                                                </div>
+                                                            </div>
+                                                                <div aria-atomic="true" aria-live="assertive"
+                                                                     class="toast" data-delay="4000"
+                                                                     id="message" role="alert">
+                                                                    <div class="toast-body d-inline-block"></div>
+                                                                    <button aria-label="Close" class="pl-3 close"
+                                                                            data-dismiss="toast"
+                                                                            type="button">
+                                                                        <span aria-hidden="true"
+                                                                              class="lni-close size-xs "></span>
+                                                                    </button>
+                                                                </div>
+                                                            <div class="col-sm-12 mt-4 text-left">
+                                                                <div class="button-border">
+                                                                    <a class="pill-button" href="javascript:void(0)"
+                                                                       id="sign-up-btn"
+                                                                       onclick="signUp()">ثبت نام</a>
+                                                                </div>
+                                                                <div class="button-border">
+                                                                    <a class="pill-button" href="javascript:void(0)"
+                                                                       id="submit-btn23"
+                                                                       onclick="showSignInDiv()">
+                                                                        ورود
+                                                                        (قبلا ثبت‌نام کردم)
+                                                                    </a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </form>
+                                                </div>
                                             </div>
-                                            <div class="row" id="signUpMsg"></div>
                                         </div>
                                         <p class="d-inline-block py-4"></p>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-lg-10 mx-auto blog" id="signInDiv" style="display: none">
+
+
                                 <div class="rounded px-lg-5">
                                     <div class="text-md-right">
                                         <h4 class="mb-4">خوش برگشتی</h4>
                                         <div class="image-border">
-                                            <div class="row"><input id="Un" placeholder="نام کاربری"></div>
-                                            <div class="row"><input id="P1" placeholder="پسورد"></div>
+
                                             <div class="row">
-                                                <button onclick="signIn()">ورود</button>
-                                                <button onclick="showSignUpDiv()">قبلا ثبت‌نام نکرده‌ام (ثبت‌نام)
-                                                </button>
+                                                <div class="col-lg-12 mt-5 contact-form">
+                                                    <form id="signinForm">
+                                                        <div class="row">
+                                                            <div class="col-lg-12 form-item">
+                                                                <div class="form-group">
+                                                                    <input class="form-control" id="email-in" name="email"
+                                                                           placeholder="ایمیل*"
+                                                                           required type="email">
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-lg-12 form-item">
+                                                                <div class="form-group">
+                                                                    <input class="form-control" id="password-in"
+                                                                           name="password" placeholder="پسورد*"
+                                                                           required type="password">
+                                                                </div>
+                                                            </div>
+                                                                <div aria-atomic="true" aria-live="assertive"
+                                                                     class="toast" data-delay="4000"
+                                                                     id="message-in" role="alert">
+                                                                    <div class="toast-body d-inline-block"></div>
+                                                                    <button aria-label="Close" class="pl-3 close"
+                                                                            data-dismiss="toast"
+                                                                            type="button">
+                                                                        <span aria-hidden="true"
+                                                                              class="lni-close size-xs "></span>
+                                                                    </button>
+                                                                </div>
+                                                            <div class="col-sm-12 mt-4 text-left">
+                                                                <div class="button-border">
+                                                                    <a class="pill-button" href="javascript:void(0)"
+                                                                       id="sign-in-btn"
+                                                                       onclick="signIn()">ورود</a>
+                                                                </div>
+                                                                <div class="button-border">
+                                                                    <a class="pill-button" href="javascript:void(0)"
+                                                                       onclick="showSignUpDiv()">
+                                                                        هنوز ثبت‌نام نکردم
+                                                                    </a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </form>
+                                                </div>
                                             </div>
-                                            <div class="row" id="signInMsg"></div>
                                         </div>
                                         <p class="d-inline-block py-4"></p>
                                     </div>
                                 </div>
+
+
+
+
+{#                                <div class="rounded px-lg-5">#}
+{#                                    <div class="text-md-right">#}
+{#                                        <h4 class="mb-4">خوش برگشتی</h4>#}
+{#                                        <div class="image-border">#}
+{#                                            <div class="row"><input id="Un" placeholder="نام کاربری"></div>#}
+{#                                            <div class="row"><input id="P1" placeholder="پسورد"></div>#}
+{#                                            <div class="row">#}
+{#                                                <button onclick="signIn()">ورود</button>#}
+{#                                                <button onclick="showSignUpDiv()">قبلا ثبت‌نام نکرده‌ام (ثبت‌نام)#}
+{#                                                </button>#}
+{#                                            </div>#}
+{#                                            <div class="row" id="signInMsg"></div>#}
+{#                                        </div>#}
+{#                                        <p class="d-inline-block py-4"></p>#}
+{#                                    </div>#}
+{#                                </div>#}
                             </div>
                         </div>
                     </div>
@@ -295,7 +404,7 @@
         <div class="header-navbar h-100">
             <a class="navbar-brand" href="#hero">
                 <b>TJ</b>
-{#                <span>TJamshidi</span>#}
+                {#                <span>TJamshidi</span>#}
             </a>
             <ul class="list-group menu text-center" id="menu">
                 <li class="list-group-item"><a class="active" href="#hero" id="refer2hero"><i
@@ -331,7 +440,8 @@
                             <div class="hero-content">
                                 <h1 class="mb-3"><span class="base-color">تیچر </span>جمشیدی هستم</h1>
                                 <h4 class="text-capitalize mb-0"><span class="base-color">تیچر </span> <span
-                                        class="element" data-elements="ریاضی ...,و بنیان‌گذار هوش مصنوعی در آموزش ..."></span></h4>
+                                        class="element"
+                                        data-elements="ریاضی ...,و بنیان‌گذار هوش مصنوعی در آموزش ..."></span></h4>
                                 <p class="max-width-450 mx-0 my-4">بچه‌ها من براتون
                                     <a onclick="move2hash('calculator')"><span class="base-color">ماشین حساب</span></a>
                                     حل تشریحی معادله
@@ -345,13 +455,13 @@
                                     <div class="button-border mb-lg-0">
                                         <a class="pill-button" href="javascript:void(0);"
                                            data-target="#SignUPIN"
-                                   data-toggle="modal" onclick="openSignUpIn(0)"
-                                   id="SignUPINButton">ورود/ ثبت‌نام</a>
+                                           data-toggle="modal" onclick="openSignUpIn(0)"
+                                           id="SignUPINButton">ورود/ ثبت‌نام</a>
                                     </div>
                                 </div>
-{#                                <a href="javascript:void(0);" data-target="#SignUPIN"#}
-{#                                   data-toggle="modal" onclick="openSignUpIn(0)"#}
-{#                                   id="SignUPINButton">ورود/ثبت‌نام</a>#}
+                                {#                                <a href="javascript:void(0);" data-target="#SignUPIN"#}
+                                {#                                   data-toggle="modal" onclick="openSignUpIn(0)"#}
+                                {#                                   id="SignUPINButton">ورود/ثبت‌نام</a>#}
                                 </p>
                                 <div class="row">
                                     {#                                    <div class="col-lg-3">#}
@@ -409,8 +519,9 @@
                         <div class="col-lg-12">
                             <div class="text-center title">
                                 <h2 class="text-dark">معرفی <span class="base-color">من</span></h2>
-                                <p class="text-muted max-width-450 mb-5">همه چیز تو ریاضی دلیل داره، هیچ فرمولی رو حفظ
-                                    نکن!</p>
+                                <p class="text-muted max-width-450 mb-5">هیچ فرمولی رو حفظ
+                                    نکن، همه چیز تو ریاضی دلیل داره!
+                                </p>
                             </div>
                         </div>
                         <div class="col-lg-6">
@@ -431,7 +542,7 @@
                                                 <p>تحصیلات: <span>دانشگاه شریف</span></p>
                                             </li>
                                             <li>
-                                                <p>سابقه تدریس: <span>۱۲</span></p>
+                                                <p>سابقه تدریس: <span>۱۲ سال</span></p>
                                             </li>
                                             <li style="display: none">
                                                 <p>ایمیل: <span id="contact-email-0"></span></p>
@@ -473,16 +584,16 @@
                     <div class="count-up text-center box-border" id="count-up">
                         <div class="row">
                             <!-- Item-01 -->
-{#                            <div class="col-6 col-lg-3 my-3 count-item ">#}
-{#                                <div class="count-icon">#}
-{#                                    <i class="lni-download base-color"></i>#}
-{#                                </div>#}
-{#                                <div class="my-3">#}
-{#                                    <span class="timer count-number" data-from="0" data-speed="5000"#}
-{#                                          data-to="286" id="app_install_count">0</span>#}
-{#                                </div>#}
-{#                                <p class="mb-0">دانلود اپلیکیشن</p>#}
-{#                            </div>#}
+                            {#                            <div class="col-6 col-lg-3 my-3 count-item ">#}
+                            {#                                <div class="count-icon">#}
+                            {#                                    <i class="lni-download base-color"></i>#}
+                            {#                                </div>#}
+                            {#                                <div class="my-3">#}
+                            {#                                    <span class="timer count-number" data-from="0" data-speed="5000"#}
+                            {#                                          data-to="286" id="app_install_count">0</span>#}
+                            {#                                </div>#}
+                            {#                                <p class="mb-0">دانلود اپلیکیشن</p>#}
+                            {#                            </div>#}
                             <!-- Item-02 -->
                             <div class="col-6 col-lg-4 my-3 count-item ">
                                 <div class="count-icon">
@@ -536,7 +647,8 @@
                                     <div class="services-content">
                                         <h5 class="mb-3">مثال و تمرین</h5>
                                         <p class="text-muted mb-0">
-                                            کلی تمرین و مثال با هم حل می‌کنیم تا بچه‌ها همه مطالب رو یاد بگیرن و با اعتماد به نفس مسایل جدید رو حل کنن.
+                                            کلی تمرین و مثال با هم حل می‌کنیم تا بچه‌ها همه مطالب رو یاد بگیرن و با
+                                            اعتماد به نفس مسایل جدید رو حل کنن.
                                         </p>
                                     </div>
                                 </div>
@@ -550,7 +662,8 @@
                                     <div class="services-content">
                                         <h5 class="mb-3">خلاقیت</h5>
                                         <p class="text-muted mb-0">
-                                            سوالات امتیازی برای بچه‌ها طراحی می‌کنم که برای حل نیاز به فرمول‌ها پیچیده نداره ولی باید از خلاقیت‌شون استفاده کنن.
+                                            سوالات امتیازی برای بچه‌ها طراحی می‌کنم که برای حل نیاز به فرمول‌ها پیچیده
+                                            نداره ولی باید از خلاقیت‌شون استفاده کنن.
                                         </p>
                                     </div>
                                 </div>
@@ -564,7 +677,8 @@
                                     <div class="services-content">
                                         <h5 class="mb-3">ارتباط سازنده</h5>
                                         <p class="text-muted mb-0">
-                                            ارتباط با بچه‌ها نه خیلی صمیمی و نه خیلی سختگیرانه، ما باهم یاد می‌گیریم و پیشرفت می‌کنیم.
+                                            ارتباط با بچه‌ها نه خیلی صمیمی و نه خیلی سختگیرانه، ما باهم یاد می‌گیریم و
+                                            پیشرفت می‌کنیم.
                                         </p>
                                     </div>
                                 </div>
@@ -578,7 +692,8 @@
                                     <div class="services-content">
                                         <h5 class="mb-3">همه جا در دسترس</h5>
                                         <p class="text-muted mb-0">
-                                            بچه‌ها میتونند با گوشی، لپ‌تاپ یا تبلت از امکانات سایت مثل ماشین حساب حل معادله استفاده کنن.
+                                            بچه‌ها میتونند با گوشی، لپ‌تاپ یا تبلت از امکانات سایت مثل ماشین حساب حل
+                                            معادله استفاده کنن.
                                         </p>
                                     </div>
                                 </div>
@@ -592,7 +707,8 @@
                                     <div class="services-content">
                                         <h5 class="mb-3">حضور همیشگی</h5>
                                         <p class="text-muted mb-0">
-                                            با استفاده از تکنولوژی و حضور در شبکه‌های مجازی همیشه ارتباط‌مون با همدیگه حفظ می‌شه.
+                                            با استفاده از تکنولوژی و حضور در شبکه‌های مجازی همیشه ارتباط‌مون با همدیگه
+                                            حفظ می‌شه.
                                         </p>
                                     </div>
                                 </div>
@@ -606,7 +722,8 @@
                                     <div class="services-content">
                                         <h5 class="mb-3">جایزه و بورس تحصیلی</h5>
                                         <p class="text-muted mb-0">
-                                            جایزه نقدی برای بچه‌هایی که تو چالش‌ها شرکت می‌کنن و بورس تحصیلی برای شرکت در کلاس‌ها بصورت وبیناری
+                                            جایزه نقدی برای بچه‌هایی که تو چالش‌ها شرکت می‌کنن و بورس تحصیلی برای شرکت
+                                            در کلاس‌ها بصورت وبیناری
                                         </p>
                                     </div>
                                 </div>

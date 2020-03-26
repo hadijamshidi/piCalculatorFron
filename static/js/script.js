@@ -13,7 +13,7 @@ function initialWeb() {
     move2hash();
 }
 
-function move2hash(sectionId=null) {
+function move2hash(sectionId = null) {
     sectionId = sectionId || window.location.hash.replace('#', '');
     if (['hero', 'calculator', 'about', 'contact'].indexOf(sectionId) > -1) {
         document.getElementById('refer2' + sectionId).click();
@@ -173,8 +173,8 @@ function setInfo(info) {
     Object.keys(info.social).forEach(function (socialMedia) {
         document.getElementById('social-' + socialMedia).setAttribute('href', info.social[socialMedia].link);
         ['Id1', 'Id'].forEach(function (elmId) {
-            document.getElementById(socialMedia+elmId).innerHTML = '<span class="base-color">' + info.social[socialMedia].id + '</span>';
-            document.getElementById(socialMedia+elmId).setAttribute('href', info.social[socialMedia].link);
+            document.getElementById(socialMedia + elmId).innerHTML = '<span class="base-color">' + info.social[socialMedia].id + '</span>';
+            document.getElementById(socialMedia + elmId).setAttribute('href', info.social[socialMedia].link);
         });
     });
     // document.getElementById('contact-phone-0').innerHTML = info.contact.phone;
@@ -225,7 +225,7 @@ function openSignUpIn(msgId) {
     document.getElementById("SignUPINButton").click();
 }
 
-function signUp() {
+function signUp1() {
     let run = document.getElementById('rUn').value,
         rp1 = document.getElementById("rP1").value,
         rp2 = document.getElementById("rP2").value;
@@ -244,7 +244,64 @@ function signUp() {
     signUpUser(run, rp1);
 }
 
-function signIn() {
+function signUp() {
+
+    "use strict";
+
+    var email = $('#email').val();
+    var password = $('#password').val();
+    var repeatpass = $('#repeatpass').val();
+    if (!email) {
+        $('#message').toast('show').addClass('bg-danger').removeClass('bg-success');
+        $('.toast-body').html('ایمیل یادت رفته');
+    } else if (!validateEmail(email)) {
+        $('#message').toast('show').addClass('bg-danger').removeClass('bg-success');
+        $('.toast-body').html('ایمیل رو اشتباه نوشتی');
+    } else if (!password) {
+        $('#message').toast('show').addClass('bg-danger').removeClass('bg-success');
+        $('.toast-body').html('یه پسورد خوب انتخاب کن');
+    } else if (password.length < 8) {
+        $('#message').toast('show').addClass('bg-danger').removeClass('bg-success');
+        $('.toast-body').html('پسوردت حداقل ۸ تا کاراکتر باشه دیگه');
+    } else if (!repeatpass) {
+        $('#message').toast('show').addClass('bg-danger').removeClass('bg-success');
+        $('.toast-body').html('یبار دیگه پسوردت رو تکرار کنی تموم میشه');
+    } else if (!(repeatpass === password)) {
+        $('#message').toast('show').addClass('bg-danger').removeClass('bg-success');
+        $('.toast-body').html('پسورد رو درست تکرار نکردی');
+    } else {
+        $.ajax({
+            type: 'POST',
+            data: $("#signupForm").serialize(),
+            url: "/api/signup",
+            beforeSend: function () {
+                $('#sign-up-btn').html('<span class="spinner-border spinner-border-sm"></span> صبر کن ...');
+            },
+            success: function (data) {
+                $('#sign-up-btn').html('ثبت نام');
+                let myObj = data;
+                if (myObj['status'] === 'Done') {
+                    $('#message').toast('show').addClass('bg-success').removeClass('bg-danger bg-warning');
+                    $('.toast-body').html('<strong></strong> ' + myObj['msg']);
+                    signUpInDone();
+                } else if (myObj['status'] === 'Error') {
+                    $('#message').toast('show').addClass('bg-danger').removeClass('bg-success bg-warning');
+                    $('.toast-body').html('<strong></strong> ' + myObj['msg']);
+                } else if (myObj['status'] === 'Warning') {
+                    $('#message').toast('show').addClass('bg-warning').removeClass('bg-success bg-danger');
+                    $('.toast-body').html('<strong></strong> ' + myObj['msg']);
+                }
+            },
+            error: function (xhr) {
+                $('#sign-up-btn').html('ثبت نام');
+                $('#message').toast('show').addClass('bg-danger').removeClass('bg-success bg-warning');
+                $('.toast-body').html('<strong> خطا : </strong> یه مشکلی پیش اومده لطفا بعدا دوباره امتحان کن');
+            },
+        });
+    }
+}
+
+function signIn1() {
     let un = document.getElementById('Un').value,
         p1 = document.getElementById("P1").value;
     if (un === "") {
@@ -258,9 +315,59 @@ function signIn() {
     signInUser(un, p1);
 }
 
+function signIn() {
+
+    "use strict";
+    console.log("Sign In ...");
+    let email = $('#email-in').val();
+    let password = $('#password-in').val();
+    // var repeatpass = $('#repeatpass').val();
+    if (!email) {
+        $('#message-in').toast('show').addClass('bg-danger').removeClass('bg-success');
+        $('.toast-body').html('ایمیل یادت رفته');
+    } else if (!validateEmail(email)) {
+        $('#message-in').toast('show').addClass('bg-danger').removeClass('bg-success');
+        $('.toast-body').html('ایمیل رو اشتباه نوشتی');
+    } else if (!password) {
+        $('#message-in').toast('show').addClass('bg-danger').removeClass('bg-success');
+        $('.toast-body').html('پسورد یادت رفت');
+    } else {
+        $.ajax({
+            type: 'POST',
+            data: $("#signinForm").serialize(),
+            url: "/api/signin",
+            beforeSend: function () {
+                $('#sign-in-btn').html('<span class="spinner-border spinner-border-sm"></span> صبر کن ...');
+            },
+            success: function (data) {
+                $('#sign-in-btn').html('ورود');
+                let myObj = data;
+                if (myObj['status'] === 'Done') {
+                    $('#message-in').toast('show').addClass('bg-success').removeClass('bg-danger bg-warning');
+                    $('.toast-body').html('<strong></strong> ' + myObj['msg']);
+                    signUpInDone();
+                } else if (myObj['status'] === 'Error') {
+                    $('#message-in').toast('show').addClass('bg-danger').removeClass('bg-success bg-warning');
+                    $('.toast-body').html('<strong></strong> ' + myObj['msg']);
+                } else if (myObj['status'] === 'Warning') {
+                    $('#message-in').toast('show').addClass('bg-warning').removeClass('bg-success bg-danger');
+                    $('.toast-body').html('<strong>خطا : </strong> ' + myObj['msg']);
+                }
+            },
+            error: function (xhr) {
+                $('#sign-in-btn').html('ورود');
+                $('#message-in').toast('show').addClass('bg-danger').removeClass('bg-success bg-warning');
+                $('.toast-body').html('<strong> خطا : </strong> یه مشکل پیش اومده لطفا بعدا دوباره امتحان کن');
+            },
+        });
+    }
+}
+
 function signUpInDone() {
     sessionStorage.setItem(userUsageKey, '0');
-    document.getElementById("signUpInx").click();
+    setTimeout(function () {
+        document.getElementById("signUpInx").click();
+    }, 1.5 * 1000);
 }
 
 function signUpUser(userName, passWord) {
@@ -305,6 +412,11 @@ function signUpInMsg(msg, msgType, signType = 'Up') {
 }
 
 function showSignInDiv() {
+    document.getElementById("signInDiv").style.display = 'block';
+    document.getElementById("signUpDiv").style.display = 'none';
+}
+
+function showSignInDiv1() {
     document.getElementById("signInDiv").style.display = 'block';
     document.getElementById("signUpDiv").style.display = 'none';
 }

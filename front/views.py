@@ -61,22 +61,34 @@ def new_install(request):
 
 @csrf_exempt
 def signup(request):
-    username = request.POST.get('username', '')
+    username = request.POST.get('email', '')
     password = request.POST.get('password', '')
     if User.objects.filter(username=username).exists():
-        return JsonResponse({'successful': False, 'msg': 'نام کاربری تکراریه'})
+        return JsonResponse({
+            'status': 'Error',
+            'msg': 'ایمیل تکراریه'
+        })
     User.objects.create_user(username=username, password=password)
     user = authenticate(request, username=username, password=password)
     login(request, user=user)
-    return JsonResponse({'successful': True, 'msg': 'ممنون'})
+    return JsonResponse({
+        'status': 'Done',
+        'msg': 'ثبت نام انجام شد، الان وارد سایت شدی.'
+    })
 
 
 @csrf_exempt
 def sign_in(request):
-    username = request.POST.get('username', '')
+    username = request.POST.get('email', '')
     password = request.POST.get('password', '')
     user = authenticate(request, username=username, password=password)
     if user is not None:
         login(request, user=user)
-        return JsonResponse({'successful': True, 'msg': 'ممنون'})
-    return JsonResponse({'successful': False, 'msg': 'نام کاربری یا پسورد اشتباهه!'})
+        return JsonResponse({
+            'status': 'Done',
+            'msg': 'ممنون وارد سایت شدی.'
+        })
+    return JsonResponse({
+        'status': 'Error',
+        'msg': 'ایمیل یا پسورد اشتباهه!'
+    })
