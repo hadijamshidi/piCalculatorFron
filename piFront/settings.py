@@ -22,7 +22,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '^2-9viczn6jf3r#z4@y7fy_z33#giou)k9!ebxsyohf9-_5hrv'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
@@ -122,11 +122,11 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 # configs
 PI_URL = 'http://127.0.0.1:8080'
 PHONE = '۰۲۱-۸۸۷۷۵۶۴۳'
-INSTAGRAM = 'hadi_fintech'
+INSTAGRAM = 'teacherJamshidi'
 APARAT = 'apparatID'
-TELEGRAM = 'hadifintech'
+TELEGRAM = 'teacherJamshidi'
 EMAIL = 'info@gmail.com'
-SITE_ADDRESS = 'http://drjamshidi.com'
+SITE_ADDRESS = 'https://teacherJamshidi.com'
 UNAUTHORIZED_USER_WAITING_SECS = 5
 APP_INSTALL_COUNT_PLUS = 342
 # PWA
@@ -146,3 +146,8 @@ PWA_APP_DIR = 'rtl'
 PWA_APP_LANG = 'en-US'
 PWA_APP_DEBUG_MODE = False
 PWA_SERVICE_WORKER_PATH = os.path.join(BASE_DIR, 'templates', 'serviceworker.js')
+
+try:
+    from piFront.localsettings import *
+except ImportError:
+    pass

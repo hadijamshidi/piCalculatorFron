@@ -168,7 +168,7 @@ function addStepFormula(step) {
                 '<div class="row mathTextMathJax" >\n' +
                 // '    <div class="col-lg-4"></div>\n'+
                 // '    <div class="col-lg-4"></div>' +
-                '    <div class="col-lg-12" id="' + elmId + '">' + formula + '</div>' +
+                '    <div class="col-lg-12 formulaMathJax" id="' + elmId + '">' + formula + '</div>' +
                 '</div>\n';
         })
     }
@@ -197,8 +197,8 @@ function addStepParr(step) {
             parrDiv += '' +
                 '<div class="row mathTextMathJax" >\n' +
                 // '    <div class="col-lg-4"></div>\n'+
-                '    <div class="col-lg-6" id="' + parr0Id + '">' + parr[0] + '</div>' +
-                '    <div class="col-lg-6" id="' + parr1Id + '">' + parr[1] + '</div>' +
+                '    <div class="col-lg-6 formulaMathJax" id="' + parr0Id + '">' + parr[0] + '</div>' +
+                '    <div class="col-lg-6 formulaMathJax" id="' + parr1Id + '">' + parr[1] + '</div>' +
                 '</div>\n';
         })
     }

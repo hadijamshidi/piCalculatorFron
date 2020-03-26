@@ -7,7 +7,7 @@ const infoStorageKey = 'infoFromSession';
 function initialWeb() {
     // registerSW();
     // initVideos();
-    // changeColor();
+    changeColor();
     // initPrograms();
     initInfo();
     move2hash();
