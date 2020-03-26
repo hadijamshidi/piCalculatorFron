@@ -21,7 +21,7 @@ def get_solution(request):
     b = int(request.GET.get('b', 0))
     c = int(request.GET.get('c', 0))
     return JsonResponse({
-        "solutions": pi.solve(coeffs=[a, b, c]),
+        "solutions": pi.solve(a=a, b=b, c=c),
         "unlimited": request.user.is_authenticated,
         "unAuthorizedWaiting": settings.UNAUTHORIZED_USER_WAITING_SECS
     })
