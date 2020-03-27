@@ -162,16 +162,20 @@
                                                                            required type="password">
                                                                 </div>
                                                             </div>
-                                                            <div aria-atomic="true" aria-live="assertive"
-                                                                 class="toast" data-delay="4000"
-                                                                 id="message" role="alert">
-                                                                <div class="toast-body d-inline-block"></div>
-                                                                <button aria-label="Close" class="pl-3 close"
-                                                                        data-dismiss="toast"
-                                                                        type="button">
+                                                            <div class="col-lg-12" id="sign-up-msg">
+                                                                <div aria-atomic="true" aria-live="assertive"
+                                                                     class="toast" data-delay="2000"
+                                                                     id="message" role="alert"
+                                                                     style="position: relative; right: 0px">
+                                                                    <div class="toast-body d-inline-block"></div>
+                                                                    <button aria-label="Close" class="pl-3 close"
+                                                                            data-dismiss="toast"
+                                                                            type="button">
                                                                         <span aria-hidden="true"
                                                                               class="lni-close size-xs "></span>
-                                                                </button>
+                                                                    </button>
+                                                                </div>
+
                                                             </div>
                                                             <div class="col-sm-12 mt-4 text-left">
                                                                 <div class="button-border">
@@ -224,16 +228,18 @@
                                                                            required type="password">
                                                                 </div>
                                                             </div>
-                                                            <div aria-atomic="true" aria-live="assertive"
-                                                                 class="toast" data-delay="4000"
-                                                                 id="message-in" role="alert">
-                                                                <div class="toast-body d-inline-block"></div>
-                                                                <button aria-label="Close" class="pl-3 close"
-                                                                        data-dismiss="toast"
-                                                                        type="button">
+                                                            <div class="col-lg-12">
+                                                                <div aria-atomic="true" aria-live="assertive"
+                                                                     class="toast" data-delay="2000"
+                                                                     id="message-in" role="alert" style="color: white">
+                                                                    <div class="toast-body d-inline-block"></div>
+                                                                    <button aria-label="Close" class="pl-3 close"
+                                                                            data-dismiss="toast"
+                                                                            type="button">
                                                                         <span aria-hidden="true"
                                                                               class="lni-close size-xs "></span>
-                                                                </button>
+                                                                    </button>
+                                                                </div>
                                                             </div>
                                                             <div class="col-sm-12 mt-4 text-left">
                                                                 <div class="button-border">
@@ -421,9 +427,9 @@
                                         <h5 class="d-inline-block py-4" id="calculator-loading-h5"></h5>
                                         <div class="image-border">
                                             تبلیغ
-{#                                            <img alt="" src="/static/img/about-02.png">#}
+                                            {#                                            <img alt="" src="/static/img/about-02.png">#}
                                         </div>
-{#                                        <p>p</p>#}
+                                        {#                                        <p>p</p>#}
                                         <!--                                        <div class="px-md-5 px-3 py-4 quotation">-->
                                         <!--                                            <i class="base-color lni-quotation size-md"></i>-->
                                         <!--                                            <h6 class="base-color font-italic mb-0">We Love Buna, lorem ipsum dolor sit-->
@@ -931,9 +937,10 @@
                                     </div>
                                     <br>
                                     <div class="button-border mb-lg-0">
+                                        <a data-target="#calculator-loading"
+                                           data-toggle="modal" id="show-loading" style="display: none"></a>
                                         <a class="pill-button" href="javascript:void(0);"
-                                           data-target="#calculator-loading"
-                                           data-toggle="modal" onclick="solvePoly2()">
+                                            onclick="solvePoly2()">
                                             حل کن</a>
                                     </div>
                                     {#                                    <button onclick="solvePoly2()">حل کن</button>#}

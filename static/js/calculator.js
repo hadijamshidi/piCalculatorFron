@@ -37,10 +37,6 @@ function poly2CoeffsPreview() {
 }
 
 function solvePoly2() {
-    $('#calculator-loading').modal({
-    		backdrop: 'static',
-    		keyboard: false
-		});
     let coeffs = getPoly2Coeffs();
     solvePoly(coeffs);
 
@@ -61,10 +57,15 @@ function solvePoly(coeffs) {
         return null
     }
     if (!calculatorActive()) {
-        console.log("not active");
         openSignUpIn(1);
         return null
     }
+    document.getElementById('show-loading').click();
+    $('#calculator-loading').modal({
+        backdrop: 'static',
+        keyboard: false
+    });
+
     let calH5 = document.getElementById('calculator-loading-h5');
     calH5.innerHTML = 'چه معادله خوبی';
     $.ajax({
