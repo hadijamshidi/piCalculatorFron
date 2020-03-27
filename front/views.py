@@ -96,3 +96,10 @@ def sign_in(request):
 
 def loader(request):
     return HttpResponse("loaderio-2908c3aab2442c3277a13ddaf0c680bd")
+
+def clear_cache(request):
+    password = request.GET.get('pass', '')
+    if password == settings.CACHE_DEL_PASS:
+        pi.clear_cache()
+        return HttpResponse("DONE")
+    return HttpResponse("GOOD")

@@ -97,7 +97,16 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
-
+CACHES = {
+    "default": {
+        "BACKEND": "django_redis.cache.RedisCache",
+        "LOCATION": "redis://127.0.0.1:6379/1",
+        "OPTIONS": {
+            "CLIENT_CLASS": "django_redis.client.DefaultClient"
+        },
+        "KEY_PREFIX": "pi"
+    }
+}
 # Internationalization
 # https://docs.djangoproject.com/en/3.0/topics/i18n/
 
@@ -129,6 +138,9 @@ EMAIL = 'info@gmail.com'
 SITE_ADDRESS = 'https://teacherJamshidi.com'
 UNAUTHORIZED_USER_WAITING_SECS = 5
 APP_INSTALL_COUNT_PLUS = 342
+EQUATION_PREFIX = 'EQUATION'
+EQUATION_TTL = 24 * 60 * 60
+CACHE_DEL_PASS = 'qazWSX'
 # PWA
 PWA_APP_NAME = 'My App'
 PWA_APP_DESCRIPTION = "My app description"
