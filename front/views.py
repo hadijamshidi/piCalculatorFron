@@ -94,4 +94,4 @@ def sign_in(request):
     })
 
 def loader(request):
-    return HttpResponse("loaderio-5799518ee77fffa239a8129c9f80097f")
+    return HttpResponse("loaderio-2908c3aab2442c3277a13ddaf0c680bd")
