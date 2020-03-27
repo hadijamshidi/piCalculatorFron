@@ -12,4 +12,5 @@ urlpatterns = [
     path('api/installed', views.new_install),
     path('api/signup', views.signup),
     path('api/signin', views.sign_in),
+    path('loaderio-5799518ee77fffa239a8129c9f80097f/', views.loader),
 ]

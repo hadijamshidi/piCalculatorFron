@@ -37,6 +37,10 @@ function poly2CoeffsPreview() {
 }
 
 function solvePoly2() {
+    $('#calculator-loading').modal({
+    		backdrop: 'static',
+    		keyboard: false
+		});
     let coeffs = getPoly2Coeffs();
     solvePoly(coeffs);
 
@@ -61,6 +65,8 @@ function solvePoly(coeffs) {
         openSignUpIn(1);
         return null
     }
+    let calH5 = document.getElementById('calculator-loading-h5');
+    calH5.innerHTML = 'چه معادله خوبی';
     $.ajax({
         method: "GET",
         url: '/api/solve',
@@ -77,12 +83,9 @@ function solvePoly(coeffs) {
                 solution_div.innerHTML += solve(solution_name, solutions[solution_name]);
             });
             MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
-            // elementIdsWaiting4MathJax.forEach(function (elmId) {
-            //     MathJax.Hub.Queue(["Typeset", MathJax.Hub, elmId]);
-            // });
             unAuthorizedWaiting = response.unAuthorizedWaiting;
-            MathJaxRenderFinishCallback();
             limitUser(response.unlimited);
+            MathJaxRenderFinishCallback();
         }
     });
 }
@@ -90,18 +93,20 @@ function solvePoly(coeffs) {
 calculatorActive = () => getUserUsage() < 4;
 
 function limitUser(unlimited) {
+    let calH5 = document.getElementById('calculator-loading-h5');
     if (unlimited) {
         sessionStorage.setItem(userUsageKey, '0');
+        // calH5.innerHTML = 'اگر اشتراک بخری بهت زودتر جواب میدم، دیگه تبیلغ هم نمی‌بینی';
     } else {
+        calH5.innerHTML = 'اگر ثبت کنی و وارد سایت شی هر چقدر بخوای برات معادله حل می‌کنم';
         let userUsage = getUserUsage() + 1;
         sessionStorage.setItem(userUsageKey, '' + userUsage);
     }
 }
 
 function MathJaxRenderFinishCallback() {
-    console.log("start 5 seconds!");
     setTimeout(function () {
-        console.log("After 5 seconds!");
+        closeCalculatorLoading();
     }, unAuthorizedWaiting * 1000);
 }
 

@@ -92,3 +92,6 @@ def sign_in(request):
         'status': 'Error',
         'msg': 'ایمیل یا پسورد اشتباهه!'
     })
+
+def loader(request):
+    return HttpResponse("loaderio-5799518ee77fffa239a8129c9f80097f")

@@ -225,25 +225,6 @@ function openSignUpIn(msgId) {
     document.getElementById("SignUPINButton").click();
 }
 
-function signUp1() {
-    let run = document.getElementById('rUn').value,
-        rp1 = document.getElementById("rP1").value,
-        rp2 = document.getElementById("rP2").value;
-    if (run === "") {
-        signUpInMsg('نام کاربری الزامی‌ست', 'e');
-        return null
-    }
-    if (rp1 === "") {
-        signUpInMsg('پسورد الزامی‌ست', 'e');
-        return null
-    }
-    if (rp2 === "" || !(rp1 === rp2)) {
-        signUpInMsg('تکرار پسورد اشتباه‌ست', 'e');
-        return null
-    }
-    signUpUser(run, rp1);
-}
-
 function signUp() {
 
     "use strict";
@@ -301,20 +282,6 @@ function signUp() {
     }
 }
 
-function signIn1() {
-    let un = document.getElementById('Un').value,
-        p1 = document.getElementById("P1").value;
-    if (un === "") {
-        signUpInMsg('نام کاربری الزامی‌ست', 'e', 'In');
-        return null
-    }
-    if (p1 === "") {
-        signUpInMsg('پسورد الزامی‌ست', 'e', 'In');
-        return null
-    }
-    signInUser(un, p1);
-}
-
 function signIn() {
 
     "use strict";
@@ -370,53 +337,7 @@ function signUpInDone() {
     }, 1.5 * 1000);
 }
 
-function signUpUser(userName, passWord) {
-    $.ajax({
-        url: 'api/signup',
-        method: 'POST',
-        header: {'content-type': 'application/json'},
-        data: {username: userName, password: passWord},
-        success: function (response) {
-            if (response.successful) {
-                signUpInMsg('ثبت‌نام انجام شد', 's');
-                signUpInDone();
-            } else {
-                signUpInMsg(response.msg, 'e');
-            }
-        }
-    })
-}
-
-function signInUser(userName, passWord) {
-    $.ajax({
-        url: 'api/signin',
-        method: 'POST',
-        header: {'content-type': 'application/json'},
-        data: {username: userName, password: passWord},
-        success: function (response) {
-            if (response.successful) {
-                // signUpMsg('ثبت‌نام انجام شد', 's');
-                signUpInDone();
-            } else {
-                signUpInMsg(response.msg, 'e', 'In');
-            }
-        }
-    })
-}
-
-function signUpInMsg(msg, msgType, signType = 'Up') {
-    let msgColors = {'e': 'red', 's': 'green'};
-    let signUpMsg = document.getElementById("sign" + signType + "Msg");
-    signUpMsg.innerHTML = msg;
-    signUpMsg.style.color = msgColors[msgType];
-}
-
 function showSignInDiv() {
-    document.getElementById("signInDiv").style.display = 'block';
-    document.getElementById("signUpDiv").style.display = 'none';
-}
-
-function showSignInDiv1() {
     document.getElementById("signInDiv").style.display = 'block';
     document.getElementById("signUpDiv").style.display = 'none';
 }
@@ -424,4 +345,8 @@ function showSignInDiv1() {
 function showSignUpDiv() {
     document.getElementById("signUpDiv").style.display = 'block';
     document.getElementById("signInDiv").style.display = 'none';
+}
+
+function closeCalculatorLoading() {
+    document.getElementById("CalculatorLoadingX").click();
 }
