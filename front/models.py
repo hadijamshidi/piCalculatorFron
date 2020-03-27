@@ -1,5 +1,5 @@
 from django.db import models
-from datetime import datetime
+from django.utils import timezone
 from front_enum import Status, ParameterKey
 from django.db.models import Count, F, Value
 
@@ -17,7 +17,7 @@ class Category(models.Model):
 
 
 class Post(models.Model):
-    date = models.DateTimeField(default=datetime.now, null=True, blank=True)
+    date = models.DateTimeField(default=timezone.now, null=True, blank=True)
     date_str = models.CharField(default='۱۵ فروردین ۱۳۹۹', max_length=30, null=True, blank=True)
     title = models.CharField(default='عنوان', max_length=30, null=True, blank=True)
     full_description = models.TextField(default='', null=True, blank=True)
@@ -49,8 +49,8 @@ class Post(models.Model):
 
 
 class Program(models.Model):
-    date = models.DateTimeField(default=datetime.now, null=True, blank=True)
-    register_deadline = models.DateTimeField(default=datetime.now, null=True, blank=True)
+    date = models.DateTimeField(default=timezone.now, null=True, blank=True)
+    register_deadline = models.DateTimeField(default=timezone.now, null=True, blank=True)
     register_deadline_str = models.CharField(default='۱۵ فروردین ۱۳۹۹', max_length=30, null=True, blank=True)
     title = models.CharField(default='عنوان', max_length=30, null=True, blank=True)
     full_description = models.TextField(default='', null=True, blank=True)
@@ -64,7 +64,7 @@ class Program(models.Model):
 
     @classmethod
     def get_programs(cls, fetch_num=20):
-        programs = cls.objects.filter(status=Status.active.value, register_deadline__gt=datetime.now()).order_by(
+        programs = cls.objects.filter(status=Status.active.value, register_deadline__gt=timezone.now()).order_by(
             '-date')[:fetch_num]
         programs_list = []
         categories = {}
