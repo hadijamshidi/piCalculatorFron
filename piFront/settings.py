@@ -120,7 +120,7 @@ STATICFILES_DIRS = (os.path.join('static'),)
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 # configs
-PI_URL = 'http://127.0.0.1:8080'
+PI_URL = 'http://37.152.179.211'
 PHONE = '۰۲۱-۸۸۷۷۵۶۴۳'
 INSTAGRAM = 'teacherJamshidi'
 APARAT = 'apparatID'
