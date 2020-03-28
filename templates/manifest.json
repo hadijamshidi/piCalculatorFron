@@ -1,21 +1,23 @@
 {
-  "name": "JamshidiApp",
-  "short_name": "Calculator App",
-  "start_url": "/",
-  "display": "standalone",
-  "description": "Hi Awesome APP",
-  "background_color": "#fff",
-  "theme_color": "#fff",
+  "short_name": "TJ",
+  "name": "Teacher Jamshidi",
+  "description": "Teacher Jamshidi Calculator",
   "icons": [
     {
-      "src": "/static/img/icon-512x512.png",
+      "src": "/static/img/512x512.png",
       "sizes": "512x512",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any maskable"
     },
     {
-      "src": "/static/img/icon-192x192.png",
+      "src": "/static/img/192x192.png",
       "sizes": "192x192",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any maskable"
     }
-  ]
+  ],
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f1f3f6",
+  "theme_color": "#ffb55a"
 }

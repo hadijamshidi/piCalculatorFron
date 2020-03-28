@@ -18,9 +18,10 @@
 'use strict';
 
 let deferredInstallPrompt = null;
-const installButton = document.getElementById('butInstall');
+// const installButton = document.getElementById('butInstall');
+// installButton.addEventListener('click', installPWA);
+
 // const installButton1 = document.getElementById('butInstall1');
-installButton.addEventListener('click', installPWA);
 // installButton1.addEventListener('click', installPWA);
 
 // CODELAB: Add event listener for beforeinstallprompt event
@@ -74,5 +75,4 @@ function logAppInstalled(evt) {
     // CODELAB: Add code to log the event
     $.ajax('/api/installed');
     console.log('Weather App was installed.', evt);
-
 }

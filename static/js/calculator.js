@@ -67,7 +67,7 @@ function solvePoly(coeffs) {
     });
 
     let calH5 = document.getElementById('calculator-loading-h5');
-    calH5.innerHTML = 'چه معادله خوبی';
+    // calH5.innerHTML = 'چه معادله خوبی';
     $.ajax({
         method: "GET",
         url: '/api/solve',

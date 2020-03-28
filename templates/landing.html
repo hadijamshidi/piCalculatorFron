@@ -1,14 +1,64 @@
-{% load pwa %}
 <!DOCTYPE html>
 <html dir="rtl" lang="en">
 <head>
-    <!-- http://retrina.com/demo/arshia/particle-03-rtl.html#contact -->
+    <!-- START Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-162023748-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-162023748-1');
+    </script>
+    <!-- END Global site tag (gtag.js) - Google Analytics -->
+
+    <!-- http://retrina.com/demo/arshia/particle-03-rtl.html#contact  Yellow: #ffb55a -->
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
-    {% progressive_web_app_meta %}
+    <!-- Start PWA Conf -->
+    <!-- Path to manifest.json -->
+    <link rel="manifest" href="manifest.json">
+
+    <!-- Add to homescreen for Chrome on Android -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="My App">
+
+
+    <!-- Chrome for Android theme color -->
+    <meta name="theme-color" content="#0A0302">
+
+    <!-- Add to homescreen for Safari on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="TJ">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <link rel="apple-touch-icon" href="/static/img/120x120.png" sizes="120x120">
+    <link rel="apple-touch-icon" href="/static/img/72x72.png" sizes="72x72">
+    <link href="/static/img/512x512.png"
+          media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)"
+          rel="apple-touch-startup-image"/>
+    <!-- Tile for Win8 -->
+    <meta name="msapplication-TileColor" content="#ffb55a">
+
+    <meta name="msapplication-TileImage" content="/static/img/72x72.png">
+    <link rel="icon" sizes="" href="/static/img/72x72.png">
+    <script type="text/javascript">
+        // Initialize the service worker
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('serviceworker.js', {
+                scope: '/'
+            }).then(function (registration) {
+                // Registration was successful
+
+            }, function (err) {
+                // registration failed :(
+
+            });
+        }
+    </script>
+    <!-- End PWA Conf -->
     <title>تیچر جمشیدی</title>
     {#    <link rel="manifest" href="/static/js/manifest.json">#}
-    <meta content="" name="description"/>
+    <meta content="تیچر جمشیدی هستم، تیچر ریاضی و با استفاده از هوش مصنوعی برای آموزش بهتر ماشین حساب حل تشریحی معادله درجه ۲ را در اختیارتون میزارم." name="description"/>
     <meta content="" name="keywords"/>
     <!--  FavIcon  -->
     <link href="http://retrina.com/demo/arshia/assets/img/favicon.ico" rel="shortcut icon">
@@ -422,12 +472,17 @@
                         <div class="row">
                             <div class="col-lg-10 mx-auto blog">
                                 <div class="rounded px-lg-5">
-                                    <div class="text-md-right">
-                                        <h4 class="mb-4" id="calculator-loading-h4">یه چند ثانیه صبر کن</h4>
+                                    <div style="text-align: center;">
+                                        <h4 class="mb-4" id="calculator-loading-h4">
+                                            صبر کن یذره فکر کنم
+                                        </h4>
+{#                                            <span class="spinner-border spinner-border-sm"></span>#}
                                         <h5 class="d-inline-block py-4" id="calculator-loading-h5"></h5>
-                                        <div class="image-border">
-                                            تبلیغ
-                                            {#                                            <img alt="" src="/static/img/about-02.png">#}
+                                        <div>
+                                            <span class="spinner-border spinner-border-lg" style="width: 6rem; height: 6rem;"></span>
+
+                                            {#                                            <span class="spinner-border spinner-border-sm">.  دارم فکر می‌کنم </span>#}
+{#                                            <img alt="" src="/static/img/about-02.png">#}
                                         </div>
                                         {#                                        <p>p</p>#}
                                         <!--                                        <div class="px-md-5 px-3 py-4 quotation">-->
@@ -703,18 +758,18 @@
                     <div class="count-up text-center box-border" id="count-up">
                         <div class="row">
                             <!-- Item-01 -->
-                            {#                            <div class="col-6 col-lg-3 my-3 count-item ">#}
-                            {#                                <div class="count-icon">#}
-                            {#                                    <i class="lni-download base-color"></i>#}
-                            {#                                </div>#}
-                            {#                                <div class="my-3">#}
-                            {#                                    <span class="timer count-number" data-from="0" data-speed="5000"#}
-                            {#                                          data-to="286" id="app_install_count">0</span>#}
-                            {#                                </div>#}
-                            {#                                <p class="mb-0">دانلود اپلیکیشن</p>#}
-                            {#                            </div>#}
+                            <div class="col-6 col-lg-3 my-3 count-item ">
+                                <div class="count-icon">
+                                    <i class="lni-download base-color"></i>
+                                </div>
+                                <div class="my-3">
+                                    <span class="timer count-number" data-from="0" data-speed="5000"
+                                          data-to="286" id="app_install_count">0</span>
+                                </div>
+                                <p class="mb-0">دانلود اپلیکیشن</p>
+                            </div>
                             <!-- Item-02 -->
-                            <div class="col-6 col-lg-4 my-3 count-item ">
+                            <div class="col-6 col-lg-3 my-3 count-item ">
                                 <div class="count-icon">
                                     <i class="lni-pencil-alt base-color"></i>
                                 </div>
@@ -725,7 +780,7 @@
                                 <p class="mb-0">ساعت تدریس</p>
                             </div>
                             <!-- Item-03 -->
-                            <div class="col-6 col-lg-4 my-3 count-item ">
+                            <div class="col-6 col-lg-3 my-3 count-item ">
                                 <div class="count-icon">
                                     <i class="lni-medall  base-color"></i>
                                 </div>
@@ -736,7 +791,7 @@
                                 <p class="mb-0">گواهی معتبر</p>
                             </div>
                             <!-- Item-04 -->
-                            <div class="col-6 col-lg-4 my-3 count-item ">
+                            <div class="col-6 col-lg-3 my-3 count-item ">
                                 <div class="count-icon">
                                     <i class="lni-emoji-smile base-color"></i>
                                 </div>
@@ -765,7 +820,7 @@
                                     </div>
                                     <div class="services-content">
                                         <h5 class="mb-3">مثال و تمرین</h5>
-                                        <p class="text-muted mb-0">
+                                        <p class="text-muted mb-0" align="justify">
                                             کلی تمرین و مثال با هم حل می‌کنیم تا بچه‌ها همه مطالب رو یاد بگیرن و با
                                             اعتماد به نفس مسایل جدید رو حل کنن.
                                         </p>
@@ -780,7 +835,7 @@
                                     </div>
                                     <div class="services-content">
                                         <h5 class="mb-3">خلاقیت</h5>
-                                        <p class="text-muted mb-0">
+                                        <p class="text-muted mb-0" align="justify">
                                             سوالات امتیازی برای بچه‌ها طراحی می‌کنم که برای حل نیاز به فرمول‌ها پیچیده
                                             نداره ولی باید از خلاقیت‌شون استفاده کنن.
                                         </p>
@@ -795,7 +850,7 @@
                                     </div>
                                     <div class="services-content">
                                         <h5 class="mb-3">ارتباط سازنده</h5>
-                                        <p class="text-muted mb-0">
+                                        <p class="text-muted mb-0" align="justify">
                                             ارتباط با بچه‌ها نه خیلی صمیمی و نه خیلی سختگیرانه، ما باهم یاد می‌گیریم و
                                             پیشرفت می‌کنیم.
                                         </p>
@@ -810,7 +865,7 @@
                                     </div>
                                     <div class="services-content">
                                         <h5 class="mb-3">همه جا در دسترس</h5>
-                                        <p class="text-muted mb-0">
+                                        <p class="text-muted mb-0" align="justify">
                                             بچه‌ها میتونند با گوشی، لپ‌تاپ یا تبلت از امکانات سایت مثل ماشین حساب حل
                                             معادله استفاده کنن.
                                         </p>
@@ -825,7 +880,7 @@
                                     </div>
                                     <div class="services-content">
                                         <h5 class="mb-3">حضور همیشگی</h5>
-                                        <p class="text-muted mb-0">
+                                        <p class="text-muted mb-0" align="justify">
                                             با استفاده از تکنولوژی و حضور در شبکه‌های مجازی همیشه ارتباط‌مون با همدیگه
                                             حفظ می‌شه.
                                         </p>
@@ -840,7 +895,7 @@
                                     </div>
                                     <div class="services-content">
                                         <h5 class="mb-3">جایزه و بورس تحصیلی</h5>
-                                        <p class="text-muted mb-0">
+                                        <p class="text-muted mb-0" align="justify">
                                             جایزه نقدی برای بچه‌هایی که تو چالش‌ها شرکت می‌کنن و بورس تحصیلی برای شرکت
                                             در کلاس‌ها بصورت وبیناری
                                         </p>
@@ -864,7 +919,7 @@
                                         <img alt="/" src="/static/img/client-00.png">
                                     </div>
                                 </div>
-                                <p class="mb-0 mt-2 text-muted">"من عاشق کلاس‌های هندسه آقای جمشیدی هستم، تو این کلاس من
+                                <p class="mb-0 mt-2 text-muted" align="justify">"من عاشق کلاس‌های هندسه تیچر جمشیدی هستم، تو این کلاس من
                                     یاد گرفتم که چجوری باید فکر کنم و مسایل هندسه رو قدم به قدم حل کنم."</p>
                                 <span class="d-block mt-3 font-weight-bold mr-2">محمد جواد، <small class="text-muted"> پایه هشتم، تهران</small></span>
                             </div>
@@ -875,7 +930,7 @@
                                         <img alt="/" src="/static/img/client-05.png">
                                     </div>
                                 </div>
-                                <p class="mb-0 mt-2 text-muted">"مهندس جمشیدی دلیل همه فرمول و قوانین ریاضی رو میدونه و
+                                <p class="mb-0 mt-2 text-muted" align="justify">"تیچر دلیل همه فرمول و قوانین ریاضی رو میدونه و
                                     بهم یاد داده. من به حفظ کردن فرمولها نیازی ندارم."</p>
                                 <span class="d-block mt-3 font-weight-bold mr-2">مهرزاد، <small class="text-muted">پایه نهم، اصفهان (وبینار)</small></span>
                             </div>
@@ -886,8 +941,8 @@
                                         <img alt="/" src="/static/img/client-06.png">
                                     </div>
                                 </div>
-                                <p class="mb-0 mt-2 text-muted">"من همه چی رو بلد بودم ولی نمی تونستم مساله حل کنم، تو
-                                    کلاس‌های مهندس فهمیدم مشکلم بی دقتی و نامرتب نوشتن بوده"</p>
+                                <p class="mb-0 mt-2 text-muted" align="justify">"من همه چی رو بلد بودم ولی نمی تونستم مساله حل کنم، تو
+                                    کلاس‌های تیچر فهمیدم مشکلم بی دقتی و نامرتب نوشتن بوده!"</p>
                                 <span class="d-block mt-3 font-weight-bold mr-2">سروش، <small class="text-muted">۱۵ ساله، استرالیا (وبینار)</small></span>
                             </div>
                             <!-- Testimonial Item-04 -->
@@ -897,8 +952,8 @@
                                         <img alt="/" src="/static/img/client-07.png">
                                     </div>
                                 </div>
-                                <p class="mb-0 mt-2 text-muted">"قبلا همیشه از ریاضی می‌ترسیدم و سرکلاس‌ها سوال
-                                    نمی‌پرسیدم اما الان اعتماد به نفسم زیاد شده و همش دوس دارم برم پا تخته"</p>
+                                <p class="mb-0 mt-2 text-muted" align="justify">"قبلا همیشه از ریاضی می‌ترسیدم و سرکلاس‌ها سوال
+                                    نمی‌پرسیدم اما الان اعتماد به نفسم زیاد شده و همش دوس دارم برم پا تخته :)"</p>
                                 <span class="d-block mt-3 font-weight-bold mr-2">عرشیا، <small class="text-muted">پایه نهم، تهران</small></span>
                             </div>
                         </div>
@@ -918,13 +973,21 @@
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="text-center title">
-                                <h2 class="text-dark">حل معادله <span class="base-color">درجه ۲</span></h2>
+                                <h2 class="text-dark">ماشین حساب <span class="base-color">حل تشریحی</span></h2>
                                 <p class="text-muted max-width-450 mb-5">
                                 <div>
-                                    معادله درجه دو رو بنویس
+                                <h3 class="text-dark">معادله درجه ۲ رو بنویس</h3>
+
                                     <div style="direction: ltr">
+{#                                        <input class="form-control poly2input"#}
+{#                                               name="password"#}
+{#                                               value="1"#}
+{#                                               id="poly-2-a"#}
+{#                                               required type="number">#}
+
                                         <input class="poly2input" id="poly-2-a" type="number" value="1"
-                                               onchange="poly2CoeffsPreview()"> \(
+                                               onchange="poly2CoeffsPreview()">
+                                        \(
                                         x^2 \) + <input class="poly2input" id="poly-2-b" type="number" value="2"
                                                         onchange="poly2CoeffsPreview()"> \( x\) + <input
                                             class="poly2input" id="poly-2-c"
@@ -940,7 +1003,7 @@
                                         <a data-target="#calculator-loading"
                                            data-toggle="modal" id="show-loading" style="display: none"></a>
                                         <a class="pill-button" href="javascript:void(0);"
-                                            onclick="solvePoly2()">
+                                           onclick="solvePoly2()">
                                             حل کن</a>
                                     </div>
                                     {#                                    <button onclick="solvePoly2()">حل کن</button>#}
@@ -1842,6 +1905,6 @@
 <script src="/static/js/arshia-rtl.js"></script>
 <script src="/static/js/script.js"></script>
 <script src="/static/js/calculator.js"></script>
-{#<script src="/static/js/install.js"></script>#}
+<script src="/static/js/install.js"></script>
 </body>
 </html>

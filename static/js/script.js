@@ -188,11 +188,11 @@ function setInfo(info) {
     // document.getElementById("telegramChannelId").setAttribute('href', info.social.telegram.link);
     // document.getElementById("telegramChannelLink").setAttribute('href', info.social.telegram.link);
     // console.log("start info counter");
-    // setTimeout(function () {
-    //     console.log("start info");
-    //     document.getElementById("app_install_count").setAttribute('data-to', '' + info.other.app_install_count);
-    //     document.getElementById("app_install_count").innerHTML = info.other.app_install_count;
-    // }, 10 * 1000);
+    setTimeout(function () {
+        console.log("start info");
+        document.getElementById("app_install_count").setAttribute('data-to', '' + info.other.app_install_count);
+        document.getElementById("app_install_count").innerHTML = info.other.app_install_count;
+    }, 10 * 1000);
 
 }
 

@@ -123,7 +123,9 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
-STATIC_ROOT = ''
+# STATIC_ROOT = ''
+PROJECT_DIR = os.path.dirname(os.path.abspath(__file__))
+STATIC_ROOT = os.path.join(PROJECT_DIR, 'static')
 STATIC_URL = '/static/'
 STATICFILES_DIRS = (os.path.join('static'),)
 MEDIA_URL = '/media/'
@@ -136,28 +138,28 @@ APARAT = 'apparatID'
 TELEGRAM = 'teacherJamshidi'
 EMAIL = 'info@gmail.com'
 SITE_ADDRESS = 'https://teacherJamshidi.com'
-UNAUTHORIZED_USER_WAITING_SECS = 5
+UNAUTHORIZED_USER_WAITING_SECS = 3
 APP_INSTALL_COUNT_PLUS = 342
 EQUATION_PREFIX = 'EQUATION'
 EQUATION_TTL = 24 * 60 * 60
 CACHE_DEL_PASS = 'qazWSX'
 # PWA
-PWA_APP_NAME = 'My App'
-PWA_APP_DESCRIPTION = "My app description"
-PWA_APP_THEME_COLOR = '#0A0302'
-PWA_APP_BACKGROUND_COLOR = '#ffffff'
-PWA_APP_DISPLAY = 'standalone'
-PWA_APP_SCOPE = '/'
-PWA_APP_ORIENTATION = 'any'
-PWA_APP_START_URL = '/'
-PWA_APP_ICONS = [{'src': '/static/img/my_app_icon.png', 'sizes': '160x160'}]
-PWA_APP_ICONS_APPLE = [{'src': '/static/img/my_apple_icon.png', 'sizes': '160x160'}]
-PWA_APP_SPLASH_SCREEN = [{'src': '/static/img/icon-512x512.png',
-                          'media': '(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)'}]
-PWA_APP_DIR = 'rtl'
-PWA_APP_LANG = 'en-US'
-PWA_APP_DEBUG_MODE = False
-PWA_SERVICE_WORKER_PATH = os.path.join(BASE_DIR, 'templates', 'serviceworker.js')
+# PWA_APP_NAME = 'My App'
+# PWA_APP_DESCRIPTION = "My app description"
+# PWA_APP_THEME_COLOR = '#0A0302'
+# PWA_APP_BACKGROUND_COLOR = '#ffffff'
+# PWA_APP_DISPLAY = 'standalone'
+# PWA_APP_SCOPE = '/'
+# PWA_APP_ORIENTATION = 'any'
+# PWA_APP_START_URL = '/'
+# PWA_APP_ICONS = [{'src': '/static/img/my_app_icon.png', 'sizes': '160x160'}]
+# PWA_APP_ICONS_APPLE = [{'src': '/static/img/my_apple_icon.png', 'sizes': '160x160'}]
+# PWA_APP_SPLASH_SCREEN = [{'src': '/static/img/icon-512x512.png',
+#                           'media': '(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)'}]
+# PWA_APP_DIR = 'rtl'
+# PWA_APP_LANG = 'en-US'
+# PWA_APP_DEBUG_MODE = False
+# PWA_SERVICE_WORKER_PATH = os.path.join(BASE_DIR, 'templates', 'serviceworker.js')
 
 try:
     from piFront.localsettings import *
