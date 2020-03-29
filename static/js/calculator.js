@@ -21,6 +21,9 @@ function poly2CoeffsPreview() {
     if (b > 0) {
         b_str = "+ " + b + "x";
     }
+    if (b > 0 && a === 0) {
+        b_str = b + "x";
+    }
     if (b === 0) {
         b_str = "";
     }
@@ -39,7 +42,6 @@ function poly2CoeffsPreview() {
 function solvePoly2() {
     let coeffs = getPoly2Coeffs();
     solvePoly(coeffs);
-
 }
 
 function getPoly2Coeffs() {
